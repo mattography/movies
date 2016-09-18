@@ -1,0 +1,72 @@
+body{
+  background-color: #e8e8e8;
+}
+.title{
+  font-weight: 200;
+}
+img{
+  box-shadow: 5px 2px 15px -6px #000;
+  max-height: 245px;
+  margin: 8px 0px 10px 0px;
+  padding: 0px;
+}
+.navbar-default {
+    background-color: #d4d4d4;
+}
+.container{
+  margin-top: 100px;
+}
+.container{
+  margin-top: 100px;
+}
+  [ng-click] {
+  cursor: pointer;
+}
+
+.modal-backdrop.in {
+    opacity: .8;
+    filter: alpha(opacity=50);
+    background-color: #003366;
+}
+.modal{
+  background-color: transparent;
+}
+.modal-content{
+  min-height: 400px;
+}
+.modal-content {
+    margin-top: 30%;
+    position: relative;
+    background-color: transparent;
+    border: 0px solid rgba(0,0,0,.2)!important;
+    border-radius: 6px!important;
+    /* -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5); */
+    box-shadow: 0 0px 0px rgba(0,0,0,.5)!important;
+    background-clip: padding-box;
+    /* outline: 0; */
+}
+.modal-body{
+  margin: 5% -10% 0% 0%;
+  padding: 0px 0px 0px 0px;
+}
+.modal-image{
+  width: 200px;
+  height: 250px;
+  float: left;
+  margin-right: 60px;
+  max-height: 222px;
+}
+.overview{
+  font-size: 14px;
+  color: #fff;
+}
+.caption {
+    padding: 9px;
+    color: #333;
+    min-height: 245px;
+    border: 1px solid #000;
+    margin-top: 8px;
+}
+li.dropdown {
+    border: 1px solid gray;
+}

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+<title>Newest Movies</title>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </button>
+      <a class="navbar-brand" href="#">Movies</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">History</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <div ng-app="app">
+
+  <div ng-controller="moviesController">
+    <div class="container">
+      <h3>Latest Releases ({{page}} of {{pageSize}} pages)</h3>
+      <div class="row">
+        <div ng-repeat="items in results">
+          <a ng-click="open(items)" class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+            <img ng-if="items.poster_path" ng-src="http://image.tmdb.org/t/p/w342/{{items.poster_path}}">
+            <div class="caption" ng-hide="items.poster_path">
+              <p>Poster Not Available for: <br><b>{{items.original_title}}</b></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  <div class="text-center">
+  <div class="row">
+    <button ng-click="prev()" class="btn btn-default" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
+      Page {{page}} of {{pageSize}}
+    <button ng-click="next()" class="btn btn-default" ng-disabled="currentPage >= pageSize" ng-click="currentPage=currentPage+1">Next</button>
+  </div>
+  </div>
+  </div>
+
+  <!--MODAL WINDOW-->
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-body overview">
+      <img class="modal-image" ng-src="http://image.tmdb.org/t/p/w342/{{movie.poster_path}}">
+      <h3 class="title">{{movie.original_title}} ({{movie.release_date | date: 'yyyy'}})</h3>
+      <p>Rating: {{movie.adult}} | Score: {{movie.popularity}} | Release Date: {{movie.release_date | date: MMyy}}</p>
+      <hr>
+      <p>{{movie.overview}}</p>
+    </div>
+  </script>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
